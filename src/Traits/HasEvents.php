@@ -28,15 +28,16 @@ trait HasEvents {
      *
      * @var array $events
      */
-    protected $events = [];
+    protected array $events = [];
 
     /**
      * Set a specific event
-     * @param $section
-     * @param $event
-     * @param $class
+     * @param  string  $section
+     * @param  string  $event
+     * @param  Event  $class
      */
-    public function setEvent($section, $event, $class) {
+    public function setEvent(string $section, string $event, Event $class): void
+    {
         if (isset($this->events[$section])) {
             $this->events[$section][$event] = $class;
         }
@@ -44,21 +45,22 @@ trait HasEvents {
 
     /**
      * Set all events
-     * @param $events
+     * @param  array  $events
      */
-    public function setEvents($events) {
+    public function setEvents(array $events): void
+    {
         $this->events = $events;
     }
 
     /**
      * Get a specific event callback
-     * @param $section
-     * @param $event
+     * @param  string  $section
+     * @param  string  $event
      *
-     * @return Event
+     * @return Event|string
      * @throws EventNotFoundException
      */
-    public function getEvent($section, $event): Event {
+    public function getEvent(string $section, string $event): Event|string {
         if (isset($this->events[$section])) {
             return $this->events[$section][$event];
         }
