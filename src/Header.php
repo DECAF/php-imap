@@ -657,7 +657,7 @@ class Header {
                 $value = (string)$value;
             }
             // Only parse strings and don't parse any attributes like the user-agent
-            if (($key == "user_agent") === false) {
+            if (in_array($key, ['user_agent', 'from', 'to', 'cc', 'bcc', 'reply_to', 'sender']) === false) {
                 if (($pos = strpos($value, ";")) !== false) {
                     $original = substr($value, 0, $pos);
                     $this->set($key, trim(rtrim($original)), true);

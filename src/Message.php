@@ -35,35 +35,36 @@ use Webklex\PHPIMAP\Traits\HasEvents;
  * @property integer msglist
  * @property integer uid
  * @property integer msgn
- * @property Attribute subject
- * @property Attribute message_id
- * @property Attribute message_no
- * @property Attribute references
- * @property Attribute date
- * @property Attribute from
- * @property Attribute to
- * @property Attribute cc
- * @property Attribute bcc
- * @property Attribute reply_to
- * @property Attribute in_reply_to
- * @property Attribute sender
+ * @property Attribute|null subject
+ * @property Attribute|null message_id
+ * @property Attribute|null message_no
+ * @property Attribute|null references
+ * @property Attribute|null date
+ * @property Attribute|null from
+ * @property Attribute|null to
+ * @property Attribute|null cc
+ * @property Attribute|null bcc
+ * @property Attribute|null reply_to
+ * @property Attribute|null in_reply_to
+ * @property Attribute|null sender
  *
  * @method integer getMsglist()
  * @method integer setMsglist($msglist)
  * @method integer getUid()
  * @method integer getMsgn()
- * @method Attribute getPriority()
- * @method Attribute getSubject()
- * @method Attribute getMessageId()
- * @method Attribute getReferences()
- * @method Attribute getDate()
- * @method Attribute getFrom()
- * @method Attribute getTo()
- * @method Attribute getCc()
- * @method Attribute getBcc()
- * @method Attribute getReplyTo()
- * @method Attribute getInReplyTo()
- * @method Attribute getSender()
+ * @method Attribute|null getPriority()
+ * @method Attribute|null getSubject()
+ * @method Attribute|null getMessageId()
+ * @method Attribute|null getMessageNo()
+ * @method Attribute|null getReferences()
+ * @method Attribute|null getDate()
+ * @method Attribute|null getFrom()
+ * @method Attribute|null getTo()
+ * @method Attribute|null getCc()
+ * @method Attribute|null getBcc()
+ * @method Attribute|null getReplyTo()
+ * @method Attribute|null getInReplyTo()
+ * @method Attribute|null getSender()
  */
 class Message {
     use HasEvents;
