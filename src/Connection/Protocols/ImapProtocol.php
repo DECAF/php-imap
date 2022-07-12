@@ -873,7 +873,16 @@ class ImapProtocol extends Protocol {
         $set = $this->buildSet($from, $to);
         $command = $this->buildUIDCommand("MOVE", $uid);
 
-        return $this->requestAndResponse($command, [$set, $this->escapeString($folder)], true);
+        $response = $this->requestAndResponse($command, [$set, $this->escapeString($folder)], true);
+
+        if ($response === true || is_array($response)) {
+            $return = true;
+        }
+        else {
+            $return = false;
+        }
+
+        return $return;
     }
 
     /**
@@ -980,7 +989,16 @@ class ImapProtocol extends Protocol {
      * @throws RuntimeException
      */
     public function expunge(): bool {
-        return $this->requestAndResponse('EXPUNGE');
+        $response = $this->requestAndResponse('EXPUNGE');
+
+        if ($response === true || is_array($response)) {
+            $return = true;
+        }
+        else {
+            $return = false;
+        }
+
+        return $return;
     }
 
     /**
