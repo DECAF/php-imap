@@ -934,7 +934,17 @@ class ImapProtocol extends Protocol {
      * @throws RuntimeException
      */
     public function createFolder(string $folder): bool {
-        return $this->requestAndResponse('CREATE', [$this->escapeString($folder)], true);
+        $response =  $this->requestAndResponse('CREATE', [$this->escapeString($folder)], true);
+
+        if ($response === true || is_array($response)) {
+            $return = true;
+        }
+        else {
+            $return = false;
+        }
+
+        return $return;
+
     }
 
     /**
